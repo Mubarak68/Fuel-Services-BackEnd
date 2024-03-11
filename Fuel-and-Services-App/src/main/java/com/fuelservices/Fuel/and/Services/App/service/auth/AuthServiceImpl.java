@@ -57,12 +57,12 @@ public class AuthServiceImpl implements AuthService{
     }
 
     @Override
-    public AuthinticationResponse signin(CreateSignInRequest createLoginRequest) {
-        if (createLoginRequest.getPassword() == null || createLoginRequest.getUsername() == null){
+    public AuthinticationResponse signin(CreateSignInRequest createSignInRequest) {
+        if (createSignInRequest.getPassword() == null || createSignInRequest.getUsername() == null){
             throw new NullPointerException();
         }
-        String username = createLoginRequest.getUsername().toLowerCase();
-        String password = createLoginRequest.getPassword();
+        String username = createSignInRequest.getUsername().toLowerCase();
+        String password = createSignInRequest.getPassword();
 
         authentication(username, password);
 

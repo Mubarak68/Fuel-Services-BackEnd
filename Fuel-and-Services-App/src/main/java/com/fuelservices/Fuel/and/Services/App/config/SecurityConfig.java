@@ -23,7 +23,6 @@ import java.util.List;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     public static final String AUTH_PATH= "/api/v1/auth/**";
-
     public static final String USER_PATH = "/api/v1/user/**";
     private static final List<String> ALLOWED_METHODS = Arrays.asList("GET", "PUT", "POST", "DELETE", "OPTIONS", "PATCH");
     private static final List<String> ALLOWED_HEADERS = Arrays.asList("x-requested-with", "authorization", "Content-Type",
@@ -31,7 +30,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private static final String SUPER_ADMIN_PATH = "/api/v1/super_admin/**";
 
-    private static final String CATEGORY_ADMIN_PATH = "/api/v1/categories/**";
     @Autowired
     private JWTUtil jwtUtil;
     @Autowired
@@ -53,7 +51,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(AUTH_PATH).permitAll()
                 .antMatchers(USER_PATH).hasAuthority("user")
                 .antMatchers(SUPER_ADMIN_PATH).hasAuthority("super_admin")
-                .antMatchers(CATEGORY_ADMIN_PATH).hasAuthority("super_admin")
                 .antMatchers("/swagger-ui/**", "/v3/api-docs/**", "/swagger-resources/**", "/configuration/**", "/webjars/**", "/favicon-**").permitAll()
                 .anyRequest()
                 .authenticated();

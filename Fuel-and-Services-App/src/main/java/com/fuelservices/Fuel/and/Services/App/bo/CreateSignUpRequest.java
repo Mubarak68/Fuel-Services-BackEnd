@@ -4,12 +4,12 @@ public class CreateSignUpRequest {
     private String username;
     private String email;
     private String password;
-    private Long phoneNumber;
+    private Integer phoneNumber;
 
-    public Long getPhoneNumber() {
+    public Integer getPhoneNumber() {
         return phoneNumber;
     }
-    public void setPhoneNumber(Long phoneNumber) {
+    public void setPhoneNumber(Integer phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
     public String getEmail() {

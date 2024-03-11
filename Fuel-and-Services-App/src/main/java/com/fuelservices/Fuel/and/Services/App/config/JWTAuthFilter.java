@@ -33,9 +33,9 @@ public class JWTAuthFilter extends OncePerRequestFilter {
 
 
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        String authorizationHeader = request.getHeader(AUTHORIZATION);
-        if(!request.getServletPath().equals(AUTH_PATH + "/login") && authorizationHeader != null && authorizationHeader.startsWith(BEARER)){
+    protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filter) throws ServletException, IOException {
+        String authorizationHeader = httpServletRequest.getHeader(AUTHORIZATION);
+        if(!httpServletRequest.getServletPath().equals(AUTH_PATH + "/signin") && authorizationHeader != null && authorizationHeader.startsWith(BEARER)){
             String token = authorizationHeader.substring(7);
             if(jwtUtil.isTokenValid(token)){
                 String username = jwtUtil.getUsernameFromToken(token);
@@ -45,10 +45,11 @@ public class JWTAuthFilter extends OncePerRequestFilter {
                 UserDetails userDetails = userDetailsService.loadUserByUsername(username);
 
                 UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userDetails,null,userDetails.getAuthorities());
-                authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+                authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(httpServletRequest));
                 SecurityContextHolder.getContext().setAuthentication(authentication);
             }
         }
-        filterChain.doFilter(request,response);
+        filter.doFilter(httpServletRequest,httpServletResponse);
+
     }
 }

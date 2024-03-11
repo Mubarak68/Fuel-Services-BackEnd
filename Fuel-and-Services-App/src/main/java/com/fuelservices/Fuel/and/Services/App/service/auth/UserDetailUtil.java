@@ -1,6 +1,6 @@
 package com.fuelservices.Fuel.and.Services.App.service.auth;
 
-import com.GarageApp.GarageApp.bo.CustomUserDetails;
+import com.fuelservices.Fuel.and.Services.App.bo.CustomUserDetails;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 

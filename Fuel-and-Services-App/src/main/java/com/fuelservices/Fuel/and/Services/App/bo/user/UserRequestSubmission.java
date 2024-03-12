@@ -1,5 +1,6 @@
 package com.fuelservices.Fuel.and.Services.App.bo.user;
 
+import com.fuelservices.Fuel.and.Services.App.entity.ServiceEntity;
 import com.fuelservices.Fuel.and.Services.App.util.CarType;
 import com.fuelservices.Fuel.and.Services.App.util.RequestType;
 import com.fuelservices.Fuel.and.Services.App.util.ServiceType;
@@ -9,7 +10,7 @@ private CarType carType;
 private String location;
 private RequestType requestType;
 private ServiceType serviceType;
-
+private ServiceEntity serviceEntity;
     public CarType getCarType() {
         return carType;
     }
@@ -40,5 +41,13 @@ private ServiceType serviceType;
 
     public void setServiceType(ServiceType serviceType) {
         this.serviceType = serviceType;
+    }
+
+    public ServiceEntity getServiceEntity() {
+        return serviceEntity;
+    }
+
+    public void setServiceEntity(ServiceEntity serviceEntity) {
+        this.serviceEntity = serviceEntity;
     }
 }

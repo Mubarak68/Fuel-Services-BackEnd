@@ -21,10 +21,9 @@ public class RequestEntity {
     private CarType carType;
     @Enumerated(EnumType.STRING)
     private RequestType requestType;
+
     @Enumerated(EnumType.STRING)
-private ServiceType serviceType;
-
-
+    private ServiceType serviceType;
 
     @OneToOne
     @JoinColumn(name = "service_Id")

@@ -29,50 +29,9 @@ public class UserEntity {
     @Column(name = "phone_number",nullable = false)
     private String phoneNumber;
 
-    @Enumerated(EnumType.STRING)
-    private ServiceType serviceType;
-    @Enumerated(EnumType.STRING)
-    private RequestType requestType;
-    @Enumerated(EnumType.STRING)
-    private CarType carType;
-    @Column(name = "location",nullable = false)
-    private String location;
-
     @OneToOne
     @JoinColumn(name = "role_id")
     private RoleEntity roles;
-
-    public ServiceType getServiceType() {
-        return serviceType;
-    }
-
-    public void setServiceType(ServiceType serviceType) {
-        this.serviceType = serviceType;
-    }
-
-    public RequestType getRequestType() {
-        return requestType;
-    }
-
-    public void setRequestType(RequestType requestType) {
-        this.requestType = requestType;
-    }
-
-    public CarType getCarType() {
-        return carType;
-    }
-
-    public void setCarType(CarType carType) {
-        this.carType = carType;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
 
     public Long getUser_Id() {
         return user_Id;

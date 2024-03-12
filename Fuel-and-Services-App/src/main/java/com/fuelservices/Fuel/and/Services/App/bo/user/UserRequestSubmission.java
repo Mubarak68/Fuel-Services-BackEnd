@@ -5,6 +5,9 @@ import com.fuelservices.Fuel.and.Services.App.util.CarType;
 import com.fuelservices.Fuel.and.Services.App.util.RequestType;
 import com.fuelservices.Fuel.and.Services.App.util.ServiceType;
 
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+
 public class UserRequestSubmission {
 private CarType carType;
 private String location;

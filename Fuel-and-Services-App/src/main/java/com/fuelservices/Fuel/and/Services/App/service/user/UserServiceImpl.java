@@ -11,7 +11,9 @@ import com.fuelservices.Fuel.and.Services.App.repository.RequestRepository;
 import com.fuelservices.Fuel.and.Services.App.repository.ServiceRepository;
 import com.fuelservices.Fuel.and.Services.App.repository.UserRepository;
 import com.fuelservices.Fuel.and.Services.App.service.auth.UserDetailUtil;
+import com.fuelservices.Fuel.and.Services.App.util.CarType;
 import com.fuelservices.Fuel.and.Services.App.util.RequestType;
+import com.fuelservices.Fuel.and.Services.App.util.ServiceType;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -63,20 +65,22 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void submitRequest( Long service_Id) {
+    public void submitRequest(Long service_Id, ) {
         UserEntity userEntity = userRepository.findById(UserDetailUtil.userDetails().getId())
                 .orElseThrow();
-        RequestEntity request = new RequestEntity();
         ServiceEntity serviceEntity = serviceRepository.getById(service_Id);
 
-        UserRequestSubmission userRequest = new UserRequestSubmission();
-        userRequest.setRequestType(RequestType.waiting);
-        userRequest.setServiceType(userEntity.getServiceType());
-        userRequest.setCarType(userEntity.getCarType());
-        userRequest.setLocation(userEntity.getLocation());
+        RequestEntity request = new RequestEntity();
 
+
+        request.setRequest_Id(request.getRequest_Id());
+        request.setRequestType(serviceEntity.getRequestType());
+        request.setServiceType(request.getServiceType());
+        request.setCarType(request.getCarType());
+        request.setLocation(request.getLocation());
+        request.setUserEntity(request.getUserEntity());
         requestRepository.save(request);
-
+//حط userentity فوق وغيرهم بكل مكان
     }
 
 

@@ -2,6 +2,7 @@ package com.fuelservices.Fuel.and.Services.App.entity;
 
 import com.fuelservices.Fuel.and.Services.App.util.CarType;
 import com.fuelservices.Fuel.and.Services.App.util.RequestType;
+import com.fuelservices.Fuel.and.Services.App.util.ServiceType;
 
 import javax.persistence.*;
 
@@ -17,9 +18,11 @@ public class RequestEntity {
     @Column(name = "location",nullable = false)
     private String location;
     @Enumerated(EnumType.STRING)
-private CarType carType;
+    private CarType carType;
     @Enumerated(EnumType.STRING)
-private RequestType requestType;
+    private RequestType requestType;
+    @Enumerated(EnumType.STRING)
+private ServiceType serviceType;
 
 
 
@@ -89,5 +92,13 @@ private RequestType requestType;
 
     public void setDriverEntity(DriverEntity driverEntity) {
         this.driverEntity = driverEntity;
+    }
+
+    public ServiceType getServiceType() {
+        return serviceType;
+    }
+
+    public void setServiceType(ServiceType serviceType) {
+        this.serviceType = serviceType;
     }
 }

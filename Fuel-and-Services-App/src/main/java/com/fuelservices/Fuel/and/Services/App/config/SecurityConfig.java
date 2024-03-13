@@ -50,7 +50,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers(AUTH_PATH).permitAll()
                 .antMatchers(USER_PATH).hasAuthority("user")
-                .antMatchers(USER_PATH).hasAuthority("admin")
                 .antMatchers(SUPER_ADMIN_PATH).hasAuthority("super_admin")
                 .antMatchers("/swagger-ui/**", "/v3/api-docs/**", "/swagger-resources/**", "/configuration/**", "/webjars/**", "/favicon-**").permitAll()
                 .anyRequest()

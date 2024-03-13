@@ -5,7 +5,6 @@ package com.fuelservices.Fuel.and.Services.App.bo.user;
 public class UpdateUserRequest {
     private String username;
     private String email;
-
     private String password;
 
     public String getUsername() {

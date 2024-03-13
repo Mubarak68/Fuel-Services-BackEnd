@@ -28,8 +28,8 @@ public class UserController {
     }
 
     @PostMapping("/add-request")
-    public ResponseEntity<String> submitRequest(@RequestParam Long service_Id) {
-        userService.submitRequest(service_Id);
+    public ResponseEntity<String> submitRequest(@RequestParam Long service_Id, @RequestBody UserRequestSubmission userRequestSubmission) {
+        userService.submitRequest(service_Id,userRequestSubmission);
         return ResponseEntity.ok("User added a Request !!! ");
     }
 

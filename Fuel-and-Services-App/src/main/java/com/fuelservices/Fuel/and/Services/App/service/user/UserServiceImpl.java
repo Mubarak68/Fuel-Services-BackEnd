@@ -65,22 +65,21 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void submitRequest(Long service_Id, ) {
+    public void submitRequest(Long service_Id, UserRequestSubmission userRequestSubmission) {
         UserEntity userEntity = userRepository.findById(UserDetailUtil.userDetails().getId())
                 .orElseThrow();
         ServiceEntity serviceEntity = serviceRepository.getById(service_Id);
 
-        RequestEntity request = new RequestEntity();
+        RequestEntity requestEntity = new RequestEntity();
 
 
-        request.setRequest_Id(request.getRequest_Id());
-        request.setRequestType(serviceEntity.getRequestType());
-        request.setServiceType(request.getServiceType());
-        request.setCarType(request.getCarType());
-        request.setLocation(request.getLocation());
-        request.setUserEntity(request.getUserEntity());
-        requestRepository.save(request);
-//حط userentity فوق وغيرهم بكل مكان
+        //requestEntity.setRequestType(userRequestSubmission.getRequestType());
+        requestEntity.setServiceType(userRequestSubmission.getServiceType());
+        requestEntity.setCarType(userRequestSubmission.getCarType());
+        requestEntity.setLocation(userRequestSubmission.getLocation());
+        requestEntity.setUserEntity(userEntity);
+        requestEntity.setServiceEntity(serviceEntity);
+        requestRepository.save(requestEntity);
     }
 
 

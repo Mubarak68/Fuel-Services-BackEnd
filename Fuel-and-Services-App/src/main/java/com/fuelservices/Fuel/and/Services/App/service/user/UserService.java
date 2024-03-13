@@ -21,7 +21,7 @@ public interface UserService {
     void updateUser(UpdateUserRequest updateUserRequest, Long user_Id);
 
 
-    void submitRequest(Long service_Id);
+    void submitRequest(Long service_Id, UserRequestSubmission userRequestSubmission);
 
 
 }

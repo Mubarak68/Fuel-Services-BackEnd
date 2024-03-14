@@ -47,7 +47,7 @@ public class AuthServiceImpl implements AuthService{
         RoleEntity roleEntity = roleRepository.findRoleEntityByTitle(Roles.user.name()).orElseThrow();
 
         UserEntity userEntity = new UserEntity();
-        userEntity.setUsername(createSignupRequest.getUsername());
+        userEntity.setUsername(createSignupRequest.getUsername().toLowerCase());
         userEntity.setEmail(createSignupRequest.getEmail());
         userEntity.setPassword(createSignupRequest.getPassword());
         userEntity.setPhoneNumber(createSignupRequest.getPhoneNumber().toString());

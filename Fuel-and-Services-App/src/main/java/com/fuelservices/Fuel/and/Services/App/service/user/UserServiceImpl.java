@@ -49,7 +49,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<RequestEntity> getAllRequest() {
+    public List<RequestEntity> getAllRequest(Long user_Id) {
         return null;
     }
 
@@ -73,7 +73,6 @@ public class UserServiceImpl implements UserService {
         RequestEntity requestEntity = new RequestEntity();
 
 
-        //requestEntity.setRequestType(userRequestSubmission.getRequestType());
         requestEntity.setServiceType(userRequestSubmission.getServiceType());
         requestEntity.setCarType(userRequestSubmission.getCarType());
         requestEntity.setLocation(userRequestSubmission.getLocation());

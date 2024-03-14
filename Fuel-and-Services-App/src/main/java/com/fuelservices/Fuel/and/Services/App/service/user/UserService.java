@@ -16,7 +16,7 @@ public interface UserService {
 
     void saveUser(CreateSignUpRequest createSignupRequest);
 
-    List<RequestEntity> getAllRequest();
+    List<RequestEntity> getAllRequest(Long user_Id);
 
     void updateUser(UpdateUserRequest updateUserRequest, Long user_Id);
 

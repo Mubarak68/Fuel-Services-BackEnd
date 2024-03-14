@@ -1,6 +1,7 @@
 package com.fuelservices.Fuel.and.Services.App.entity;
 
 import com.fuelservices.Fuel.and.Services.App.util.CarType;
+import com.fuelservices.Fuel.and.Services.App.util.FuelType;
 import com.fuelservices.Fuel.and.Services.App.util.RequestType;
 import com.fuelservices.Fuel.and.Services.App.util.ServiceType;
 
@@ -21,6 +22,8 @@ public class RequestEntity {
     private CarType carType;
     @Enumerated(EnumType.STRING)
     private RequestType requestType;
+    @Enumerated(EnumType.STRING)
+    private FuelType fuelType;
 
     @Enumerated(EnumType.STRING)
     private ServiceType serviceType;
@@ -99,5 +102,13 @@ public class RequestEntity {
 
     public void setServiceType(ServiceType serviceType) {
         this.serviceType = serviceType;
+    }
+
+    public FuelType getFuelType() {
+        return fuelType;
+    }
+
+    public void setFuelType(FuelType fuelType) {
+        this.fuelType = fuelType;
     }
 }

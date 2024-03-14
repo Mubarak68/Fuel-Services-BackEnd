@@ -34,8 +34,8 @@ public class UserController {
     }
 
     @GetMapping("/request_list")
-    public ResponseEntity<List<RequestEntity>> getAddRequests() {
-        List<RequestEntity> allRequests = userService.getAllRequest();
+    public ResponseEntity<List<RequestEntity>> getAddRequests(@RequestParam Long user_Id) {
+        List<RequestEntity> allRequests = userService.getAllRequest(user_Id);
         return ResponseEntity.ok(allRequests);
     }
 

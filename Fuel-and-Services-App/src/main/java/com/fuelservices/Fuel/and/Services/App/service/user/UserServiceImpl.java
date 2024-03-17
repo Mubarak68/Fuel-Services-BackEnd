@@ -50,7 +50,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<RequestEntity> getAllRequest(Long user_Id) {
-        return null;
+        return requestRepository.findAll();
     }
 
     @Override

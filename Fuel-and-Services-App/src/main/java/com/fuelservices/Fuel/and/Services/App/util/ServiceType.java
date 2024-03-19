@@ -4,5 +4,4 @@ public enum ServiceType {
     fuel,
     tyres,
     minor,
-    major
 }
